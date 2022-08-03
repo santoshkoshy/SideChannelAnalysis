@@ -10,3 +10,6 @@ In AES, this step is preceeded by the Shift Rows operation in the 10th round (th
 Similarly, the SBox operation preceeds the Shift Row function.Therefore, in back propagation, inverse S-Box has to be performed to arrive at the correct stage where CPA can be done with the power traces. SInce the S-Box is the non-linear function of the AES implementation, CPA is performed with tangible results in this phase.
 
 From the power traces (trace_array), we notice that the 10th round does not have the mixed column in implementation. Therefore, as observed from the traces, the sample points 9550 to 9700 depict the s-box operations against which we would like to correlate.
+
+# Approach for Implementation - DOM 10th Round Key Extraction using Hamming Weight Model
+For 10th round as above, Inverse Operations are performed with Cipher text being EX-ORed with Key guess to generate the element on which inverse S-Box is performed for the Intermediate register value. This is evaluated using HW DOM model to extract key.
